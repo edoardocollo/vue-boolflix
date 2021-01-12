@@ -45,7 +45,9 @@
         <!-- {{result.titolo}}
         {{result.titoloOriginale}} -->
         <img :src="getFlag(result.linguaOriginale)" :alt="result.linguaOriginale">
-        <!-- <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i> -->
+        <div class="stars_wrap">          
+          <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
+        </div>
       </div>
     </div>
 
