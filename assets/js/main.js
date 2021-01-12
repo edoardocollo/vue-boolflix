@@ -34,7 +34,8 @@ let app = new Vue({
               stelle: votoStarsActive,
               stelleRest: votoStarsRest,
               poster: e.poster_path,
-              flag: e.backdrop_path
+
+
             });
           });
 
@@ -45,9 +46,13 @@ let app = new Vue({
           console.log(error);
         });
     },
-    getURL: function(path){
+    getPosterURL: function(path){
       const fullPath = 'https://image.tmdb.org/t/p/w500'+path;
       return fullPath;
+    },
+    getFlag: function(linugua){
+      const flagPath = `img/${linugua}.jpeg`
+      return flagPath;
     },
   },
   mounted() {
