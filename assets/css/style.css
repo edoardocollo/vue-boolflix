@@ -7,7 +7,10 @@
 body {
   background-color: darkgray;
 }
-
+img{
+  color: white;
+  font-size: 30px;
+}
 
 /* HEADER */
 header {

@@ -30,7 +30,7 @@
 
     <!-- <ul>
       <li v-for="result in searchResults">
-        <img :src="getPosterURL(result.poster)" alt=""><br>
+        <img :src="getPosterURL(result.poster)" alt="">
 
         {{result.titolo}}<br>
         {{result.titoloOriginale}}<br>
@@ -42,11 +42,10 @@
 
       <div class="card" v-for="result in searchResults" :style="getBackground(result.poster)">
         <!-- <img class="cover" :src="getPosterURL(result.poster)" alt=""> -->
-        <!-- <br>
-        {{result.titolo}}<br>
-        {{result.titoloOriginale}}<br>
-        <img :src="getFlag(result.linguaOriginale)" :alt="result.linguaOriginale"><br>
-        <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i> -->
+        <!-- {{result.titolo}}
+        {{result.titoloOriginale}} -->
+        <img :src="getFlag(result.linguaOriginale)" :alt="result.linguaOriginale">
+        <!-- <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i> -->
       </div>
     </div>
 
