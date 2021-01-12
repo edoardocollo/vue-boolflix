@@ -14,8 +14,13 @@
 
 
   <div id="app">
-    <input type="text" name="" value="" v-model="searchText" v-on:keyup.enter="getSearch(searchText)">
-    <button @click="getSearch(searchText)">click</button>
+    <header>
+      <div id="header_wrap">
+
+        <img src="img/logo-header.png" alt="" id="logo_header">
+        <input type="text" name="" value="" v-model="searchText" v-on:keyup.enter="getSearch(searchText)">
+      </div>
+    </header>
 
 
 
@@ -23,7 +28,7 @@
 
 
 
-    <ul>
+    <!-- <ul>
       <li v-for="result in searchResults">
         <img :src="getPosterURL(result.poster)" alt=""><br>
 
@@ -32,7 +37,28 @@
         <img :src="getFlag(result.linguaOriginale)" :alt="result.linguaOriginale"><br>
         <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
       </li>
-    </ul>
+    </ul> -->
+    <div id="main_content">
+
+      <div class="card" v-for="result in searchResults">
+        <img class="cover" :src="getPosterURL(result.poster)" alt="">
+        <!-- <br>
+        {{result.titolo}}<br>
+        {{result.titoloOriginale}}<br>
+        <img :src="getFlag(result.linguaOriginale)" :alt="result.linguaOriginale"><br>
+        <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i> -->
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
   </div>
 
 

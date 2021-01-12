@@ -130,7 +130,7 @@ let app = new Vue({
 
 
     getPosterURL: function(path){
-      const fullPath = 'https://image.tmdb.org/t/p/w500'+path;
+      const fullPath = 'https://image.tmdb.org/t/p/w342'+path;
       return fullPath;
     },
     getFlag: function(linugua){

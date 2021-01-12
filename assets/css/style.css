@@ -1,3 +1,42 @@
-img {
-  width: 100px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: darkgray;
+}
+
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 70px;
+  background-color: black;
+}
+#logo_header{
+  height: 60px;
+}
+#header_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+
+}
+
+
+/* MAIN CONTENT */
+#main_content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  width: 20%;
+  border: 2px solid white;
+  
 }
