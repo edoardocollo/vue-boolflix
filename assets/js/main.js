@@ -43,6 +43,7 @@ let app = new Vue({
               stelle: votoStarsActive,
               stelleRest: votoStarsRest,
               poster: e.poster_path,
+              overview: e.overview,
 
 
             });
@@ -85,7 +86,7 @@ let app = new Vue({
                 stelle: votoStarsActive,
                 stelleRest: votoStarsRest,
                 poster: e.poster_path,
-
+                overview: e.overview,
 
               });
             });

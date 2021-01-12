@@ -38,18 +38,46 @@
         <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
       </li>
     </ul> -->
-    <div id="main_content">
+    <main>
+
+      <div id="main_content">
 
       <div class="card" v-for="result in searchResults" :style="getBackground(result.poster)">
         <!-- <img class="cover" :src="getPosterURL(result.poster)" alt=""> -->
         <!-- {{result.titolo}}
         {{result.titoloOriginale}} -->
-        <img :src="getFlag(result.linguaOriginale)" :alt="result.linguaOriginale">
-        <div class="stars_wrap">          
+        <img class="flag_img" :src="getFlag(result.linguaOriginale)" :alt="result.linguaOriginale">
+        <div class="stars_wrap">
           <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
+        </div>
+        <div class="overlay">
+
+          <div class="description">
+            <span>
+
+              <strong>Titolo:</strong>{{result.titolo}}
+            </span>
+            <span>
+
+              <strong>Titolo originale:</strong>{{result.titoloOriginale}}
+            </span>
+            <span>
+
+              <strong>Voto:</strong> <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
+            </span>
+            <span>
+
+              <strong>Overview:</strong>{{result.overview}}
+            </span>
+
+          </div>
+
+
+
         </div>
       </div>
     </div>
+    </main>
 
 
 
