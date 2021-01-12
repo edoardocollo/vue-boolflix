@@ -15,6 +15,12 @@ let app = new Vue({
       axios(config)
         .then(function(response) {
           console.log(JSON.stringify(response.data));
+          app.searchResults = response.data.results;
+          console.log(app.searchResults);
+
+
+
+
         })
         .catch(function(error) {
           console.log(error);

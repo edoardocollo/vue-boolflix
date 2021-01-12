@@ -13,6 +13,9 @@
   <div id="app">
     <input type="text" name="" value="" v-model="searchText">
     <button @click="getSearch(searchText)">click</button>
+    <ul>
+      <li v-for="result in searchResults">{{result.title}}</li>
+    </ul>
   </div>
 
 
