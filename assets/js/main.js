@@ -137,6 +137,16 @@ let app = new Vue({
       const flagPath = `img/${linugua}.jpeg`
       return flagPath;
     },
+    getBackground: function(path){
+      let style = '';
+      if (path != null) {
+        style = `background-image: url('https://image.tmdb.org/t/p/w342${path}')`;
+      }else{
+        style = `background-image: url('img/bgc_notFound.jpeg')`;
+
+      }
+      return style;
+    }
   },
   mounted() {
 

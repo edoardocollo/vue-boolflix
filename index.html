@@ -40,8 +40,8 @@
     </ul> -->
     <div id="main_content">
 
-      <div class="card" v-for="result in searchResults">
-        <img class="cover" :src="getPosterURL(result.poster)" alt="">
+      <div class="card" v-for="result in searchResults" :style="getBackground(result.poster)">
+        <!-- <img class="cover" :src="getPosterURL(result.poster)" alt=""> -->
         <!-- <br>
         {{result.titolo}}<br>
         {{result.titoloOriginale}}<br>
