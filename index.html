@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -21,7 +22,9 @@
 
 
     <ul>
-      <li v-for="result in searchResults">{{result.title}}<br>{{result.original_title}}<br>{{result.original_language}}<br>{{result.vote_average}}</li>
+      <li v-for="result in searchResults">
+        <img :src="getURL(result.poster)" alt=""><br>
+        {{result.titolo}}<br>{{result.titoloOriginale}}<br>{{result.linguaOriginale}}<br><i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i></li>
     </ul>
   </div>
 
