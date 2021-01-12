@@ -14,7 +14,7 @@
 
 
   <div id="app">
-    <input type="text" name="" value="" v-model="searchText">
+    <input type="text" name="" value="" v-model="searchText" v-on:keyup.enter="getSearch(searchText)">
     <button @click="getSearch(searchText)">click</button>
 
 
