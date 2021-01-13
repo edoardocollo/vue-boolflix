@@ -8,7 +8,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -72,44 +72,45 @@
 
     </div>
     <main>
-
       <div id="main_content">
+        <div class="left_box" @click="slideArrayRight(searchResults)"><i class="fas fa-chevron-left"></i></div>
 
-      <div class="card" v-for="result in searchResults" :style="getBackground(result.poster)">
-        <!-- <img class="cover" :src="getPosterURL(result.poster)" alt=""> -->
-        <!-- {{result.titolo}}
+        <div class="card" v-for="result in searchResults" :style="getBackground(result.poster)">
+          <!-- <img class="cover" :src="getPosterURL(result.poster)" alt=""> -->
+          <!-- {{result.titolo}}
         {{result.titoloOriginale}} -->
-        <img class="flag_img" :src="getFlag(result.linguaOriginale)" :alt="result.linguaOriginale">
-        <div class="stars_wrap">
-          <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
-        </div>
-        <div class="overlay">
+          <img class="flag_img" :src="getFlag(result.linguaOriginale)" :alt="result.linguaOriginale">
+          <div class="stars_wrap">
+            <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
+          </div>
+          <div class="overlay">
 
-          <div class="description">
-            <span>
+            <div class="description">
+              <span>
 
-              <strong>Titolo:</strong>{{result.titolo}}
-            </span>
-            <span>
+                <strong>Titolo:</strong>{{result.titolo}}
+              </span>
+              <span>
 
-              <strong>Titolo originale:</strong>{{result.titoloOriginale}}
-            </span>
-            <span>
+                <strong>Titolo originale:</strong>{{result.titoloOriginale}}
+              </span>
+              <span>
 
-              <strong>Voto:</strong> <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
-            </span>
-            <span>
+                <strong>Voto:</strong> <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
+              </span>
+              <span>
 
-              <strong>Overview:</strong>{{result.overview}}
-            </span>
+                <strong>Overview:</strong>{{result.overview}}
+              </span>
+
+            </div>
+
+
 
           </div>
-
-
-
         </div>
+        <div class="right_box" @click="slideArrayLeft(searchResults)"><i class="fas fa-chevron-right"></i></div>
       </div>
-    </div>
     </main>
 
 

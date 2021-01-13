@@ -6,7 +6,7 @@ let app = new Vue({
   },
   methods: {
     getSearch: function(search) {
-
+      this.searchResults = [];
 
 
 
@@ -147,7 +147,19 @@ let app = new Vue({
 
       }
       return style;
-    }
+    },
+    slideArrayLeft: function(array){
+      const counter = 4;
+      for (var i = 0; i < counter; i++) {
+        array.push(array.shift());
+      }
+    },
+    slideArrayRight: function(array){
+      const counter = 4;
+      for (var i = 0; i < counter; i++) {
+        array.unshift(array.pop());
+      }
+    },
   },
   mounted() {
 
