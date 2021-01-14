@@ -94,10 +94,10 @@
                   <strong>Overview:</strong>{{result.overview}}
                 </span>
                 <span>
-                  <strong>Cast:</strong>
+                  <strong>Cast:</strong>{{result.cast}}
                 </span>
                 <span>
-                  <strong>Generi: </strong><span v-for="genere in result.genere">{{genere}}   </span>
+                  <strong>Generi: </strong><span v-for="(genere, i) in result.genere">{{i < 1?genere:`, ${genere}`}}   </span>
                 </span>
               </div>
 

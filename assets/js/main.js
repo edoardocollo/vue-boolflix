@@ -14,9 +14,26 @@ let app = new Vue({
     genreMap:'',
   },
   methods: {
+    // getGenre: function(array){
+    //   // console.log(array);
+    //   const generi = [];
+    //   array.forEach(e=>{
+    //     const id = e;
+    //     this.getGenreName(this.genreMap,generi,id);
+    //     // this.genreMap.forEach(e=>{
+    //     //   if (e.id === id) {
+    //     //     // console.log(e.name);
+    //     //     generi.push(e.name);
+    //     //   }
+    //     // });
+    //   });
+    //   // console.log(generi);
+    //   return generi;
+    // },
+
     getGenre: function(array){
       // console.log(array);
-      const generi = [];
+      let generi = [];
       array.forEach(e=>{
         const id = e;
         this.getGenreName(this.genreMap,generi,id);
@@ -39,6 +56,17 @@ let app = new Vue({
         }
 
       });
+      // let newTarget = '';
+      // if (target.length>0) {
+      //   for (var i = 0; 1<5 && i < target.length; i++) {
+      //     if (i == 0) {
+      //       newTarget += target[i]
+      //     }else{
+      //       newTarget += `, ${target[i]}`
+      //     }
+      //   }
+      // }
+      // target = newTarget;
     },
     getBackground: function(path) {
       let style = '';
@@ -131,15 +159,29 @@ let app = new Vue({
             axios.get(`http://api.themoviedb.org/3/movie/${id}/casts?api_key=c3425076f0ff558c6137588bf0383e0c`)
             .then(resp =>{
               const dataCast = resp.data.cast;
-              const dataArray = [];
-              dataCast.forEach(e=>{
-                dataArray.push(e.name);
-              });
-              e.cast = dataArray;
-              // const castTemp = resp.data.cast;
-              // castTemp.forEach(e=>{
-              //   e.cast.push(e.name);
-              // });
+              let cast = '';
+
+
+
+
+              // DA VERIFICARE FUNZIONA MA DA ERRORE
+              if (dataCast.length >0) {
+
+                for (var i = 0; i < dataCast.length && i < 5; i++) {
+                  if (i == 0) {
+                    cast += dataCast[i].name
+                  }else{
+
+                    cast += `, ${dataCast[i].name}`
+                  }
+                }
+              }
+              // DA VERIFICARE FUNZIONA MA DA ERRORE
+
+
+
+
+              e.cast = cast;
             })
             .catch();
           });
@@ -149,11 +191,28 @@ let app = new Vue({
             axios.get(`http://api.themoviedb.org/3/tv/${id}/credits?api_key=c3425076f0ff558c6137588bf0383e0c`)
             .then(resp =>{
               const dataCast = resp.data.cast;
-              const dataArray = [];
-              dataCast.forEach(e=>{
-                dataArray.push(e.name);
-              });
-              e.cast = dataArray;
+              let cast = '';
+
+
+
+
+              // DA VERIFICARE FUNZIONA MA DA ERRORE
+              if (dataCast.length >0) {
+
+                for (var i = 0; i < 5 && i < dataCast.length; i++) {
+                  if (i == 0) {
+                    cast += dataCast[i].name
+                  }else{
+
+                    cast += `, ${dataCast[i].name}`
+                  }
+                }
+              }
+              // DA VERIFICARE FUNZIONA MA DA ERRORE
+
+
+
+              e.cast = cast;
 
             })
             .catch();
@@ -168,18 +227,6 @@ let app = new Vue({
           // QUESTA PARTE NON MI PIACE PROPRIO PER NIENTE
         })
         .catch(error =>{console.log(error)});
-    },
-    printArray: function(array){
-      let string
-      for (var i = 0; i < array.length; i++) {
-        if (i != (array.length - 1)) {
-          string += `${array[i]}, `
-        }else{
-          string += array[i];
-        }
-      }
-      return string;
-      // console.log(array);
     },
   },
   mounted() {
