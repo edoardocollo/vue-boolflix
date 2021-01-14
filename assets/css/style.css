@@ -30,7 +30,7 @@ header {
   background: -webkit-linear-gradient(0deg, rgba(34, 193, 195, 0) 0%, rgba(0, 0, 0, 0.7693277994791666) 6%, rgba(0, 0, 0, 0.9121849423363095) 37%, rgba(0, 0, 0, 1) 72%);
   background: linear-gradient(0deg, rgba(34, 193, 195, 0) 0%, rgba(0, 0, 0, 0.7693277994791666) 6%, rgba(0, 0, 0, 0.9121849423363095) 37%, rgba(0, 0, 0, 1) 72%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#22c1c3", endColorstr="#000000", GradientType=1);
-  z-index: 1000;
+  z-index: 2000;
 }
 
 #logo_header {
@@ -189,8 +189,14 @@ nav ul > li {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transition-delay: 0s;
+  transition-duration: 0.8s;
+
+
 }
 .card:hover{
+  transition-delay: 0.6s;
+  transition-duration: 1s;
   min-width: 19vw;
   height: 30vw;
   transform: scale(1.5);
@@ -236,6 +242,8 @@ nav ul > li {
 }
 .overlay_bottomBox{
   /* display: none; */
+  display: flex;
+  flex-direction: column;
   height: 0%;
   width: 100%;
   position: absolute;
@@ -248,11 +256,13 @@ nav ul > li {
 
   /* background-color: yellow; */
 }
+.overlay_bottomBox span {
+  margin: 10px 0;
+}
 .card:hover .overlay_bottomBox{
   background-color: rgb(24, 24, 24);
   height: 30%;
-
-
+  cursor: pointer;
 }
 .card_nav{
   display: flex;
@@ -283,10 +293,17 @@ nav ul > li {
 }
 .card:hover .i_button{
   opacity: 1;
+
+
 }
 .i_button i {
   font-size: 16px;
+
+
 }
+/* .i_button_info .fa-chevron-down:hover {
+  cursor: pointer;
+} */
 
 .description {
   position: absolute;

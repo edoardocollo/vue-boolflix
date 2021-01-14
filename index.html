@@ -123,7 +123,7 @@
                   </div>
                   <div class="card_nav_right">
 
-                    <div class="i_button">
+                    <div class="i_button i_button_info" @click="">
                       <i class="fas fa-chevron-down"></i>
 
                     </div>
@@ -131,8 +131,10 @@
 
                 </div>
                 <span>
-
                   <strong>Titolo:</strong>{{result.titolo}}
+                </span>
+                <span>
+                  <strong>Genere:</strong><span v-for="(genere, i) in result.genere">{{i < 1?genere:`, ${genere}`}}</span>
                 </span>
 
               </div>
