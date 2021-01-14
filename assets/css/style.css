@@ -240,6 +240,7 @@ nav ul > li {
   width: 100%;
   position: absolute;
   bottom: 0;
+  color: white;
   transition-duration: 1s;
   transition-delay: 1s;
   overflow: hidden;
