@@ -127,8 +127,8 @@ let app = new Vue({
 
 
           this.searchResultsMovie.forEach(e =>{
-
-            axios.get(`http://api.themoviedb.org/3/movie/222/casts?api_key=c3425076f0ff558c6137588bf0383e0c`)
+            const id = e.id;
+            axios.get(`http://api.themoviedb.org/3/movie/${id}/casts?api_key=c3425076f0ff558c6137588bf0383e0c`)
             .then(resp =>{
               const dataCast = resp.data.cast;
               const dataArray = [];
@@ -145,8 +145,8 @@ let app = new Vue({
           });
 
           this.searchResultsTV.forEach(e =>{
-
-            axios.get(`http://api.themoviedb.org/3/tv/222/credits?api_key=c3425076f0ff558c6137588bf0383e0c`)
+            const id = e.id;
+            axios.get(`http://api.themoviedb.org/3/tv/${id}/credits?api_key=c3425076f0ff558c6137588bf0383e0c`)
             .then(resp =>{
               const dataCast = resp.data.cast;
               const dataArray = [];
@@ -168,6 +168,18 @@ let app = new Vue({
           // QUESTA PARTE NON MI PIACE PROPRIO PER NIENTE
         })
         .catch(error =>{console.log(error)});
+    },
+    printArray: function(array){
+      let string
+      for (var i = 0; i < array.length; i++) {
+        if (i != (array.length - 1)) {
+          string += `${array[i]}, `
+        }else{
+          string += array[i];
+        }
+      }
+      return string;
+      // console.log(array);
     },
   },
   mounted() {
