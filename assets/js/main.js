@@ -102,6 +102,10 @@ let app = new Vue({
 
     },
     getSearch:function(search){
+      this.searchResultsMovie=[];
+      this.searchResultsTV= [];
+      this.searchResultsTotal= [];
+
       Promise.all(
         [axios.get(`https://api.themoviedb.org/3/search/movie?api_key=c3425076f0ff558c6137588bf0383e0c&language=it&query=${search}&page=1&include_adult=false`),
         axios.get(`https://api.themoviedb.org/3/search/tv?api_key=c3425076f0ff558c6137588bf0383e0c&language=it&query=${search}&page=1&include_adult=false`)

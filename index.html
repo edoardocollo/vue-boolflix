@@ -76,7 +76,9 @@
           <div class="card" v-for="result in searchResultsTotal" :style="getBackground(result.poster)">
             <div class="overlay">
 
-              <div class="description">
+
+              <div class="overlay_bottomBox">
+                <!-- <div class="description">
                 <span>
 
                   <strong>Titolo:</strong>{{result.titolo}}
@@ -99,9 +101,36 @@
                 <span>
                   <strong>Generi: </strong><span v-for="(genere, i) in result.genere">{{i < 1?genere:`, ${genere}`}}   </span>
                 </span>
+              </div> -->
+                <div class="card_nav">
+                  <div class="card_nav_left">
+                    <div class="i_button">
+
+                      <i class="fas fa-play"></i>
+                    </div>
+                    <div class="i_button">
+
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="i_button">
+
+                      <i class="far fa-thumbs-up"></i>
+                    </div>
+                    <div class="i_button">
+
+                      <i class="far fa-thumbs-down"></i>
+                    </div>
+                  </div>
+                  <div class="card_nav_right">
+                    
+                    <div class="i_button">
+                      <i class="fas fa-chevron-down"></i>
+
+                    </div>
+                  </div>
+                </div>
+
               </div>
-
-
 
             </div>
           </div>

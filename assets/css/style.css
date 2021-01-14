@@ -219,13 +219,72 @@ nav ul > li {
 }
 
 .overlay {
+  position: relative;
   width: 100%;
   height: 100%;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0);
+
+  transition-duration: 3s;
+  transition-delay: 1.5s;
+
 }
 
 .card:hover>.overlay {
-  background-color: black;
-  transition: background-color .2s linear;
+  background-color: rgba(0,0,0,0.3);
+
+}
+.overlay_bottomBox{
+  /* display: none; */
+  height: 0%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  transition-duration: 1s;
+  transition-delay: 1s;
+  overflow: hidden;
+  padding: 20px 10px;
+
+  /* background-color: yellow; */
+}
+.card:hover .overlay_bottomBox{
+  background-color: rgb(24, 24, 24);
+  height: 30%;
+
+
+}
+.card_nav{
+  display: flex;
+}
+.card_nav_left {
+  display: flex;
+  width: 50%;
+
+}
+.card_nav_right {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+
+}
+.i_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 12px;
+  opacity: 0;
+  transition-duration: 1s;
+  transition-delay: 1s;
+
+}
+.card:hover .i_button{
+  opacity: 1;
+}
+.i_button i {
+  font-size: 16px;
 }
 
 .description {
@@ -241,7 +300,7 @@ nav ul > li {
   color: white;
 }
 
-.card:hover>.overlay>.description {
+.card:hover .description {
   opacity: 1;
   transition: opacity .2s linear;
 }
