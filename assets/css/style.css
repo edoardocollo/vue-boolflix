@@ -124,17 +124,23 @@ nav ul > li {
 }
 
 /* MAIN CONTENT */
-main {
+#uber_wrap {
+  position: absolute;
+  top: 70vh;
+  left: -15%;
+  width: 130%;
+
+}
+.main {
   position: relative;
   /* overflow: hidden; */
   /* display: flex; */
 }
-
-#main_content {
-  position: absolute;
+.main_content {
+  /* position: absolute;
   top: -17vh;
   left: -15%;
-  width: 130%;
+  width: 130%; */
   display: flex;
   /* flex-wrap: wrap; */
   justify-content: space-between;
@@ -146,7 +152,7 @@ main {
   display: flex;
   align-items: center;
   top: 0;
-  height: calc(100% - 40px);
+  height: 15vw;
   width: 15.9%;
   margin: 20px 0 ;
   background-color: black;
@@ -173,15 +179,25 @@ main {
 /* CARD */
 .card {
   position: relative;
+  top: 0vw;
   min-width: 19vw;
-  height: 30vw;
+  height: 15vw;
   margin: 20px 1%;
-  border: 2px solid white;
+  /* border: 2px solid white; */
+  border-radius: 5px;
   /* background-image: url('https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png'); */
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
+.card:hover{
+  min-width: 19vw;
+  height: 30vw;
+  transform: scale(1.5);
+  z-index: 1000;
+  top: -23vw;
 
+}
 .stars_wrap {
   position: absolute;
   bottom: 0;
@@ -191,6 +207,7 @@ main {
 }
 
 .flag_img {
+  height: 14px;
   position: absolute;
   z-index: 0;
 }
@@ -237,4 +254,16 @@ main {
 .card:hover>.flag_img,
 .card:hover>.stars_wrap {
   display: none;
+}
+
+/* CARD TRANSITION */
+.slide-enter-active {
+  /* transition: all .3s ease; */
+}
+.slide-leave-active {
+  /* transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0); */
+}
+.slide-enter, .slide-leave-to
+  /* transform: translateX(10px);
+  opacity: 0; */
 }

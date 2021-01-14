@@ -48,17 +48,6 @@
 
 
 
-    <!-- <ul>
-      <li v-for="result in searchResults">
-        <img :src="getPosterURL(result.poster)" alt="">
-
-        {{result.titolo}}<br>
-        {{result.titoloOriginale}}<br>
-        <img :src="getFlag(result.linguaOriginale)" :alt="result.linguaOriginale"><br>
-        <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
-      </li>
-    </ul> -->
-
     <div id="jumbotron">
       <img class="vignetta" src="img/vignetta.png" alt="">
       <div id="jumbotron_text_wrap">
@@ -71,47 +60,72 @@
       </div>
 
     </div>
-    <main>
-      <div id="main_content">
-        <div class="left_box" @click="slideArrayRight(searchResults)"><i class="fas fa-chevron-left"></i></div>
 
-        <div class="card" v-for="result in searchResults" :style="getBackground(result.poster)">
-          <!-- <img class="cover" :src="getPosterURL(result.poster)" alt=""> -->
-          <!-- {{result.titolo}}
-        {{result.titoloOriginale}} -->
-          <img class="flag_img" :src="getFlag(result.linguaOriginale)" :alt="result.linguaOriginale">
-          <div class="stars_wrap">
-            <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
-          </div>
-          <div class="overlay">
 
-            <div class="description">
-              <span>
 
-                <strong>Titolo:</strong>{{result.titolo}}
-              </span>
-              <span>
 
-                <strong>Titolo originale:</strong>{{result.titoloOriginale}}
-              </span>
-              <span>
 
-                <strong>Voto:</strong> <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
-              </span>
-              <span>
+    <div id="uber_wrap">
 
-                <strong>Overview:</strong>{{result.overview}}
-              </span>
+      <div class="main">
+        <div class="main_content">
+          <div class="left_box" @click="slideArrayRight(searchResultsTotal)"><i class="fas fa-chevron-left"></i></div>
+
+
+
+          <div class="card" v-for="result in searchResultsTotal" :style="getBackground(result.poster)">
+            <div class="overlay">
+
+              <div class="description">
+                <span>
+
+                  <strong>Titolo:</strong>{{result.titolo}}
+                </span>
+                <span>
+
+                  <strong>Titolo originale:</strong>{{result.titoloOriginale}}
+                </span>
+                <span>
+
+                  <strong>Voto:</strong> <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
+                </span>
+                <span>
+
+                  <strong>Overview:</strong>{{result.overview}}
+                </span>
+                <span>
+                  <strong>Cast:</strong><span v-for="actor in result.cast">{{actor}}   </span>
+                </span>
+                <span>
+                  <strong>Generi: </strong><span v-for="genere in result.genere">{{genere}}   </span>
+                </span>
+              </div>
+
+
 
             </div>
-
-
-
           </div>
+
+
+          <div class="right_box" @click="slideArrayLeft(searchResultsTotal)"><i class="fas fa-chevron-right"></i></div>
         </div>
-        <div class="right_box" @click="slideArrayLeft(searchResults)"><i class="fas fa-chevron-right"></i></div>
       </div>
-    </main>
+      <div class="main">
+        <div class="main_content">
+          <div class="left_box" @click="slideArrayRight(searchResultsTotal)"><i class="fas fa-chevron-left"></i></div>
+
+
+
+          <div class="card" v-for="result in searchResultsTotal" :style="getBackground(result.poster)">
+            <div class="stars_wrap">
+            </div>
+          </div>
+
+
+          <div class="right_box" @click="slideArrayLeft(searchResultsTotal)"><i class="fas fa-chevron-right"></i></div>
+        </div>
+      </div>
+    </div>
 
 
 
