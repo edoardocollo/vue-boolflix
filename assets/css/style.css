@@ -62,6 +62,9 @@ nav ul  {
 nav ul > li {
   margin: 10px;
 }
+#nav_left ul li {
+  cursor: pointer;
+}
 #nav_right{
   display: flex;
   align-items: center;

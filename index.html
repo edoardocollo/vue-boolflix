@@ -22,7 +22,7 @@
         <nav>
           <div id="nav_left">
             <ul>
-              <li@click="activeall()">Home</li>
+              <li@click="activeall()" :style="sectionActive=='all'?'background_color:red':''">Home</li>
               <li@click="activetv()">Serie TV</li>
               <li@click="activemovie()">Film</li>
               <li>Nuovi e popolari</li>
@@ -31,7 +31,7 @@
           </div>
           <div id="nav_right">
             <select class="" name="">
-              <option v-for="element in genreMap" value="" @click="activegenre(element.id)">{{element.name}}</option>
+              <option v-for="element in genreMap" value="" @click="activegenre(element.name)">{{element.name}}</option>
             </select>
             <input type="text" name="" value="" v-model="searchText" v-on:keyup.enter="getSearch(searchText)">
             <i class="fas fa-search"></i>

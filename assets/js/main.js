@@ -137,7 +137,7 @@ let app = new Vue({
                 });
 
               }else{
-                if (e.genre.includes(this.genreActive)) {
+                if (generi.includes(this.genreActive)) {
                   this.searchResultsMovie.push({
                     titolo: e.title,
                     titoloOriginale: e.original_title,
@@ -167,18 +167,39 @@ let app = new Vue({
             ResultsTV.forEach(e=>{
               const generi = this.getGenre(e.genre_ids);
 
-              this.searchResultsTV.push({
-                titolo: e.name,
-                titoloOriginale: e.original_name,
-                linguaOriginale: e.original_language,
-                poster: e.poster_path,
-                voto: e.vote_average,
-                overview: e.overview,
-                id: e.id,
-                genere: generi,
-                resize: false,
+              if (this.genreActive === 'all') {
+                this.searchResultsMovie.push({
+                  titolo: e.name,
+                  titoloOriginale: e.original_name,
+                  linguaOriginale: e.original_language,
+                  poster: e.poster_path,
+                  voto: e.vote_average,
+                  overview: e.overview,
+                  id: e.id,
+                  genere: generi,
+                  resize: false,
 
-              });
+
+                });
+
+              }else{
+                if (generi.includes(this.genreActive)) {
+                  this.searchResultsMovie.push({
+                    titolo: e.name,
+                    titoloOriginale: e.original_name,
+                    linguaOriginale: e.original_language,
+                    poster: e.poster_path,
+                    voto: e.vote_average,
+                    overview: e.overview,
+                    id: e.id,
+                    genere: generi,
+                    resize: false,
+
+
+                  });
+
+                }
+              }
             });
           }
           // this.searchResultsTV = resp[1].data.results;
@@ -273,19 +294,22 @@ let app = new Vue({
     //   this.sectionActive = 'tv';
     // },
     activemovie: function(){
-      console.log('cazzocazzo');
       this.sectionActive = 'movie';
+      this.getSearch(this.searchText);
     },
     activetv: function(){
-      console.log('cazzocazzo');
       this.sectionActive = 'tv';
+      this.getSearch(this.searchText);
     },
     activeall: function(){
-      console.log('cazzocazzo');
       this.sectionActive = 'all';
+      this.getSearch(this.searchText);
+
     },
     activegenre: function(val){
       this.genreActive = val;
+      this.getSearch(this.searchText);
+
     },
 
 
