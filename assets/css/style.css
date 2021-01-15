@@ -325,7 +325,7 @@ nav ul > li {
   background-color: rgb(24, 24, 24);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position:bottom;
+  background-position:top;
 }
 .overview {
   position: absolute;

@@ -25,8 +25,8 @@
               <li@click="activeall()" :style="sectionActive=='all'?'background_color:red':''">Home</li>
               <li@click="activetv()">Serie TV</li>
               <li@click="activemovie()">Film</li>
-              <li>Nuovi e popolari</li>
-              <li>La mia lista</li>
+              <!-- <li>Nuovi e popolari</li>
+              <li>La mia lista</li> -->
             </ul>
           </div>
           <div id="nav_right">
@@ -146,7 +146,10 @@
                 </div>
                 <span>
                   <strong>Trama:</strong>
-                  <span>{{result.overview}}</span>
+                  <span>{{result.overview}}</span><br>
+                  <strong>Cast:</strong>
+                  <span>{{result.cast}}</span><br>
+                  <span><i class="fas fa-star" v-for="element in result.voto"></i><i class="far fa-star" v-for="element in (5 - result.voto)"></i></span>
                 </span>
               </div>
 
