@@ -252,10 +252,19 @@ let app = new Vue({
     // activeTV: function(){
     //   this.sectionActive = 'tv';
     // },
-    activeMovie: function(){
+    activemovie: function(){
       console.log('cazzocazzo');
       this.sectionActive = 'movie';
     },
+    activetv: function(){
+      console.log('cazzocazzo');
+      this.sectionActive = 'movie';
+    },
+    activeall: function(){
+      console.log('cazzocazzo');
+      this.sectionActive = 'movie';
+    },
+
 
   },
   mounted() {
