@@ -5,7 +5,7 @@
 let app = new Vue({
   el: '#app',
   data: {
-
+    sectionActive:'all',
     searchText: '',
     searchResultsMovie: [],
     searchResultsTV: [],
@@ -57,17 +57,6 @@ let app = new Vue({
         }
 
       });
-      // let newTarget = '';
-      // if (target.length>0) {
-      //   for (var i = 0; 1<5 && i < target.length; i++) {
-      //     if (i == 0) {
-      //       newTarget += target[i]
-      //     }else{
-      //       newTarget += `, ${target[i]}`
-      //     }
-      //   }
-      // }
-      // target = newTarget;
     },
     getBackground: function(path) {
       let style = '';
@@ -123,116 +112,129 @@ let app = new Vue({
         .then(resp => {
           // console.log(resp);
           // this.searchResultsMovie = resp[0].data.results;
-          const ResultsMovie = resp[0].data.results;
-          ResultsMovie.forEach(e=>{
-            // console.log(e.genre_ids);
-            const generi = this.getGenre(e.genre_ids);
+          if (this.sectionActive==='movie'|| this.sectionActive==='all') {
+
+            const ResultsMovie = resp[0].data.results;
+            ResultsMovie.forEach(e=>{
+              // console.log(e.genre_ids);
+              const generi = this.getGenre(e.genre_ids);
 
 
 
-            this.searchResultsMovie.push({
-              titolo: e.title,
-              titoloOriginale: e.original_title,
-              linguaOriginale: e.original_language,
-              poster: e.poster_path,
-              voto: e.vote_average,
-              overview: e.overview,
-              id: e.id,
-              genere: generi,
-              resize: false,
+              this.searchResultsMovie.push({
+                titolo: e.title,
+                titoloOriginale: e.original_title,
+                linguaOriginale: e.original_language,
+                poster: e.poster_path,
+                voto: e.vote_average,
+                overview: e.overview,
+                id: e.id,
+                genere: generi,
+                resize: false,
+
+
+              });
+
 
 
             });
+          }
+
+          if (this.sectionActive==='tv'|| this.sectionActive==='all') {
 
 
+            const ResultsTV = resp[1].data.results;
+            ResultsTV.forEach(e=>{
+              const generi = this.getGenre(e.genre_ids);
 
-          });
+              this.searchResultsTV.push({
+                titolo: e.name,
+                titoloOriginale: e.original_name,
+                linguaOriginale: e.original_language,
+                poster: e.poster_path,
+                voto: e.vote_average,
+                overview: e.overview,
+                id: e.id,
+                genere: generi,
+                resize: false,
 
+              });
+            });
+          }
           // this.searchResultsTV = resp[1].data.results;
-          const ResultsTV = resp[1].data.results;
-          ResultsTV.forEach(e=>{
-            const generi = this.getGenre(e.genre_ids);
 
-            this.searchResultsTV.push({
-              titolo: e.name,
-              titoloOriginale: e.original_name,
-              linguaOriginale: e.original_language,
-              poster: e.poster_path,
-              voto: e.vote_average,
-              overview: e.overview,
-              id: e.id,
-              genere: generi,
-              resize: false,
 
-            });
-          });
+
+          if (this.sectionActive==='movie'|| this.sectionActive==='all') {
+
+            this.searchResultsMovie.forEach(e =>{
+              const id = e.id;
+              axios.get(`http://api.themoviedb.org/3/movie/${id}/casts?api_key=c3425076f0ff558c6137588bf0383e0c`)
+                .then(resp =>{
+                  const dataCast = resp.data.cast;
+                  let cast = '';
 
 
 
 
+                  if (dataCast.length >0) {
 
-          this.searchResultsMovie.forEach(e =>{
-            const id = e.id;
-            axios.get(`http://api.themoviedb.org/3/movie/${id}/casts?api_key=c3425076f0ff558c6137588bf0383e0c`)
-            .then(resp =>{
-              const dataCast = resp.data.cast;
-              let cast = '';
+                    for (var i = 0; i < dataCast.length && i < 5; i++) {
+                      if (i == 0) {
+                        cast += dataCast[i].name
+                      }else{
 
-
-
-
-              if (dataCast.length >0) {
-
-                for (var i = 0; i < dataCast.length && i < 5; i++) {
-                  if (i == 0) {
-                    cast += dataCast[i].name
-                  }else{
-
-                    cast += `, ${dataCast[i].name}`
+                        cast += `, ${dataCast[i].name}`
+                      }
+                    }
                   }
-                }
-              }
 
 
 
 
-              e.cast = cast;
-            })
-            .catch();
-          });
+                  e.cast = cast;
+                })
+                .catch();
+              });
+          }
 
-          this.searchResultsTV.forEach(e =>{
-            const id = e.id;
-            axios.get(`http://api.themoviedb.org/3/tv/${id}/credits?api_key=c3425076f0ff558c6137588bf0383e0c`)
-            .then(resp =>{
-              const dataCast = resp.data.cast;
-              let cast = '';
+          if (this.sectionActive==='tv'|| this.sectionActive==='all'){
+
+            this.searchResultsTV.forEach(e =>{
+              const id = e.id;
+              axios.get(`http://api.themoviedb.org/3/tv/${id}/credits?api_key=c3425076f0ff558c6137588bf0383e0c`)
+                .then(resp =>{
+                  const dataCast = resp.data.cast;
+                  let cast = '';
 
 
 
 
-              if (dataCast.length >0) {
+                  if (dataCast.length >0) {
 
-                for (var i = 0; i < 5 && i < dataCast.length; i++) {
-                  if (i == 0) {
-                    cast += dataCast[i].name
-                  }else{
+                    for (var i = 0; i < 5 && i < dataCast.length; i++) {
+                      if (i == 0) {
+                        cast += dataCast[i].name
+                      }else{
 
-                    cast += `, ${dataCast[i].name}`
+                        cast += `, ${dataCast[i].name}`
+                      }
+                    }
                   }
-                }
-              }
 
 
 
-              e.cast = cast;
+                  e.cast = cast;
 
-            })
-            .catch();
+                })
+                .catch();
 
 
 
-          });
+              });
+          }
+
+
           // QUESTA PARTE NON MI PIACE PROPRIO PER NIENTE
 
           this.searchResultsTotal = this.searchResultsMovie.concat(this.searchResultsTV);
@@ -241,6 +243,20 @@ let app = new Vue({
         })
         .catch(error =>{console.log(error)});
     },
+    // activeAll: function(){
+    //   this.sectionActive = 'all';
+    // },
+    // activeMovie: function(){
+    //   this.sectionActive = 'movie';
+    // },
+    // activeTV: function(){
+    //   this.sectionActive = 'tv';
+    // },
+    activeMovie: function(){
+      console.log('cazzocazzo');
+      this.sectionActive = 'movie';
+    },
+
   },
   mounted() {
 

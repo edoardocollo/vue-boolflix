@@ -22,9 +22,9 @@
         <nav>
           <div id="nav_left">
             <ul>
-              <li>Home</li>
-              <li>Serie TV</li>
-              <li>Film</li>
+              <li @click="active()">Home</li>
+              <li@click="active()">Serie TV</li>
+              <li@click="activeMovie()">Film</li>
               <li>Nuovi e popolari</li>
               <li>La mia lista</li>
             </ul>
@@ -75,8 +75,8 @@
 
 
 
-        <transition-group class="main_content" name="slide" tag="ul">
-
+        <!-- <transition-group class="main_content" name="slide" tag="ul"> -->
+        <ul class="main_content">
 
           <li class="card" v-for="(result,i) in searchResultsTotal" :style="getBackground(result.poster)" v-bind:key='result.id'>
             <!-- <transition name="slide" :style="getBackground(result.poster)"> -->
@@ -129,7 +129,7 @@
 
 
 
-          <!-- <transition name="fade">
+          <transition name="fade">
           <div class="info_box" v-if="result.resize" v-for="result in searchResultsTotal">
 
 
@@ -149,11 +149,11 @@
 
             </div>
           </div>
-          </transition> -->
+          </transition>
 
+          </ul>
 
-
-        </transition-group>
+        <!-- </transition-group> -->
 
 
 
