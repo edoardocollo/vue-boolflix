@@ -68,40 +68,22 @@
     <div id="uber_wrap">
 
       <div class="main">
-        <div class="main_content">
-          <div class="left_box" @click="slideArrayRight(searchResultsTotal)"><i class="fas fa-chevron-left"></i></div>
+        <div class="left_box" @click="slideArrayRight(searchResultsTotal)" v-if="showChevron">
+          <i class="fas fa-chevron-left"></i>
+        </div>
 
 
 
-          <div class="card" v-for="result in searchResultsTotal" :style="getBackground(result.poster)">
+
+        <transition-group class="main_content" name="slide" tag="ul">
+
+
+          <li class="card" v-for="(result,i) in searchResultsTotal" :style="getBackground(result.poster)" v-bind:key='result.id'>
+            <!-- <transition name="slide" :style="getBackground(result.poster)"> -->
             <div class="overlay">
 
 
               <div class="overlay_bottomBox">
-                <div class="description">
-                  <!-- <span>
-
-                    <strong>Titolo:</strong>{{result.titolo}}
-                  </span> -->
-                  <!-- <span>
-
-                    <strong>Titolo originale:</strong>{{result.titoloOriginale}}
-                  </span> -->
-                  <!-- <span>
-
-                    <strong>Voto:</strong> <i class="fas fa-star" v-for="stella in result.stelle"></i><i class="far fa-star" v-for="stella in result.stelleRest"></i>
-                  </span> -->
-                  <!-- <span>
-
-                    <strong>Overview:</strong>{{result.overview}}
-                  </span> -->
-                  <!-- <span>
-                    <strong>Cast:</strong>{{result.cast}}
-                  </span>
-                  <span>
-                    <strong>Generi: </strong><span v-for="(genere, i) in result.genere">{{i < 1?genere:`, ${genere}`}} </span>
-                  </span> -->
-                </div>
                 <div class="card_nav">
                   <div class="card_nav_left">
                     <div class="i_button">
@@ -123,7 +105,7 @@
                   </div>
                   <div class="card_nav_right">
 
-                    <div class="i_button i_button_info" @click="">
+                    <div class="i_button i_button_info" @click="resizeCard(result)">
                       <i class="fas fa-chevron-down"></i>
 
                     </div>
@@ -140,28 +122,47 @@
               </div>
 
             </div>
-          </div>
-
-
-          <div class="right_box" @click="slideArrayLeft(searchResultsTotal)"><i class="fas fa-chevron-right"></i></div>
-        </div>
-      </div>
-      <div class="main">
-        <div class="main_content">
-          <div class="left_box" @click="slideArrayRight(searchResultsTotal)"><i class="fas fa-chevron-left"></i></div>
+            <!-- </transition> -->
+          </li>
 
 
 
-          <div class="card" v-for="result in searchResultsTotal" :style="getBackground(result.poster)">
-            <div class="stars_wrap">
+
+
+          <!-- <transition name="fade">
+          <div class="info_box" v-if="result.resize" v-for="result in searchResultsTotal">
+
+
+
+
+            <div class="main_info" :style="getBackground(result.poster)">
+              <div class="overview">
+                <div class="i_button_close" @click="resizeCard(result)">
+                  <i class="fas fa-times"></i>
+
+                </div>
+                <span>
+                  <strong>Trama:</strong>
+                  <span>{{result.overview}}</span>
+                </span>
+              </div>
+
             </div>
           </div>
+          </transition> -->
 
 
-          <div class="right_box" @click="slideArrayLeft(searchResultsTotal)"><i class="fas fa-chevron-right"></i></div>
+
+        </transition-group>
+
+
+
+        <div class="right_box" @click="slideArrayLeft(searchResultsTotal)" v-if="showChevron">
+          <i class="fas fa-chevron-right"></i>
         </div>
       </div>
     </div>
+  </div>
 
 
 

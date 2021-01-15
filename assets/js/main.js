@@ -12,6 +12,7 @@ let app = new Vue({
     searchResultsTotal: [],
     totalSearch: '',
     genreMap:'',
+    showChevron: false,
   },
   methods: {
     // getGenre: function(array){
@@ -101,7 +102,16 @@ let app = new Vue({
         .catch()
 
     },
+    resizeCard: function(object){
+      console.log(true);
+      object.resize = !object.resize;
+    },
     getSearch:function(search){
+      this.showChevron = true;
+      if (search ==='') {
+        this.showChevron = false;
+
+      }
       this.searchResultsMovie=[];
       this.searchResultsTV= [];
       this.searchResultsTotal= [];
@@ -129,6 +139,7 @@ let app = new Vue({
               overview: e.overview,
               id: e.id,
               genere: generi,
+              resize: false,
 
 
             });
@@ -151,6 +162,8 @@ let app = new Vue({
               overview: e.overview,
               id: e.id,
               genere: generi,
+              resize: false,
+
             });
           });
 
@@ -168,7 +181,6 @@ let app = new Vue({
 
 
 
-              // DA VERIFICARE FUNZIONA MA DA ERRORE
               if (dataCast.length >0) {
 
                 for (var i = 0; i < dataCast.length && i < 5; i++) {
@@ -180,7 +192,6 @@ let app = new Vue({
                   }
                 }
               }
-              // DA VERIFICARE FUNZIONA MA DA ERRORE
 
 
 
@@ -200,7 +211,6 @@ let app = new Vue({
 
 
 
-              // DA VERIFICARE FUNZIONA MA DA ERRORE
               if (dataCast.length >0) {
 
                 for (var i = 0; i < 5 && i < dataCast.length; i++) {
@@ -212,7 +222,6 @@ let app = new Vue({
                   }
                 }
               }
-              // DA VERIFICARE FUNZIONA MA DA ERRORE
 
 
 
