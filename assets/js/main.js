@@ -6,7 +6,7 @@ let app = new Vue({
   el: '#app',
   data: {
     sectionActive:'all',
-    genreActive:'all',
+    genreActive:'Tutti',
     searchText: '',
     searchResultsMovie: [],
     searchResultsTV: [],
@@ -87,7 +87,10 @@ let app = new Vue({
         .get(`https://api.themoviedb.org/3/genre/movie/list?api_key=c3425076f0ff558c6137588bf0383e0c&language=it`)
         .then(resp =>{
           this.genreMap = resp.data.genres;
-
+          this.genreMap.unshift({
+            id:100000000000,
+            name: 'Tutti',
+          })
         })
         .catch()
 
@@ -121,7 +124,7 @@ let app = new Vue({
               const generi = this.getGenre(e.genre_ids);
 
 
-              if (this.genreActive === 'all') {
+              if (this.genreActive === 'Tutti') {
                 this.searchResultsMovie.push({
                   titolo: e.title,
                   titoloOriginale: e.original_title,
@@ -167,7 +170,7 @@ let app = new Vue({
             ResultsTV.forEach(e=>{
               const generi = this.getGenre(e.genre_ids);
 
-              if (this.genreActive === 'all') {
+              if (this.genreActive === 'Tutti') {
                 this.searchResultsMovie.push({
                   titolo: e.name,
                   titoloOriginale: e.original_name,
