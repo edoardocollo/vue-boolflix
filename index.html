@@ -30,6 +30,9 @@
             </ul>
           </div>
           <div id="nav_right">
+            <select class="" name="">
+              <option v-for="element in genreMap" value="" @click="activegenre(element.id)">{{element.name}}</option>
+            </select>
             <input type="text" name="" value="" v-model="searchText" v-on:keyup.enter="getSearch(searchText)">
             <i class="fas fa-search"></i>
             <span>BAMBINI</span>

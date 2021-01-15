@@ -6,6 +6,7 @@ let app = new Vue({
   el: '#app',
   data: {
     sectionActive:'all',
+    genreActive:'all',
     searchText: '',
     searchResultsMovie: [],
     searchResultsTV: [],
@@ -120,20 +121,39 @@ let app = new Vue({
               const generi = this.getGenre(e.genre_ids);
 
 
+              if (this.genreActive === 'all') {
+                this.searchResultsMovie.push({
+                  titolo: e.title,
+                  titoloOriginale: e.original_title,
+                  linguaOriginale: e.original_language,
+                  poster: e.poster_path,
+                  voto: e.vote_average,
+                  overview: e.overview,
+                  id: e.id,
+                  genere: generi,
+                  resize: false,
 
-              this.searchResultsMovie.push({
-                titolo: e.title,
-                titoloOriginale: e.original_title,
-                linguaOriginale: e.original_language,
-                poster: e.poster_path,
-                voto: e.vote_average,
-                overview: e.overview,
-                id: e.id,
-                genere: generi,
-                resize: false,
+
+                });
+
+              }else{
+                if (e.genre.includes(this.genreActive)) {
+                  this.searchResultsMovie.push({
+                    titolo: e.title,
+                    titoloOriginale: e.original_title,
+                    linguaOriginale: e.original_language,
+                    poster: e.poster_path,
+                    voto: e.vote_average,
+                    overview: e.overview,
+                    id: e.id,
+                    genere: generi,
+                    resize: false,
 
 
-              });
+                  });
+
+                }
+              }
 
 
 
@@ -258,11 +278,14 @@ let app = new Vue({
     },
     activetv: function(){
       console.log('cazzocazzo');
-      this.sectionActive = 'movie';
+      this.sectionActive = 'tv';
     },
     activeall: function(){
       console.log('cazzocazzo');
-      this.sectionActive = 'movie';
+      this.sectionActive = 'all';
+    },
+    activegenre: function(val){
+      this.genreActive = val;
     },
 
 
