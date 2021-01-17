@@ -148,7 +148,7 @@ nav ul > li {
   width: 130%; */
   display: flex;
   /* flex-wrap: wrap; */
-  justify-content: space-between;
+  justify-content: center;
 }
 .right_box,
 .left_box {

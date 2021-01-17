@@ -16,22 +16,6 @@ let app = new Vue({
     showChevron: false,
   },
   methods: {
-    // getGenre: function(array){
-    //   // console.log(array);
-    //   const generi = [];
-    //   array.forEach(e=>{
-    //     const id = e;
-    //     this.getGenreName(this.genreMap,generi,id);
-    //     // this.genreMap.forEach(e=>{
-    //     //   if (e.id === id) {
-    //     //     // console.log(e.name);
-    //     //     generi.push(e.name);
-    //     //   }
-    //     // });
-    //   });
-    //   // console.log(generi);
-    //   return generi;
-    // },
 
     getGenre: function(array){
       // console.log(array);
@@ -287,15 +271,6 @@ let app = new Vue({
         })
         .catch(error =>{console.log(error)});
     },
-    // activeAll: function(){
-    //   this.sectionActive = 'all';
-    // },
-    // activeMovie: function(){
-    //   this.sectionActive = 'movie';
-    // },
-    // activeTV: function(){
-    //   this.sectionActive = 'tv';
-    // },
     activemovie: function(){
       this.sectionActive = 'movie';
       this.getSearch(this.searchText);
