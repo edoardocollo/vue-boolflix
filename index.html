@@ -19,11 +19,18 @@
 
 
 
-
+    <!-- HEADER -->
     <header>
       <div id="header_wrap">
+
+
+        <!-- logos img -->
         <img src="img/logo-header.png" alt="" id="logo_header">
         <img src="img/n.png" alt="" id="logo_header_small">
+        <!-- /logos img -->
+
+
+        <!-- NAV -->
         <nav>
           <div id="nav_left">
             <ul>
@@ -47,9 +54,16 @@
             <i class="fas fa-caret-down"></i>
           </div>
         </nav>
+        <!-- /NAV -->
+
+
+
+
+        <!-- HAMBURGER MENU -->
         <i class="fas fa-bars" id="hamburger" @click="hamburgerButton()"></i>
 
         <div id="menu_mobile" v-if="hamburger">
+
           <ul>
             <li@click="activeall()" :style="sectionActive=='all'?'background_color:red':''">Home</li>
             <li@click="activetv()">Serie TV</li>
@@ -61,57 +75,64 @@
           <select class="" name="">
             <option v-for="element in genreMap" value="" @click="activegenre(element.name)">{{element.name}}</option>
           </select>
+
           <div class="wrap">
             <input type="text" name="" value="" v-model="searchText" v-on:keyup.enter="getSearch(searchText)">
             <i class="fas fa-search" @click="getSearch(searchText)"></i>
           </div>
+
           <div class="wrap">
             <img src="img/user_avatar.png" alt="">
             <i class="fas fa-caret-down"></i>
           </div>
 
         </div>
+        <!-- /HAMBURGER MENU -->
+
       </div>
     </header>
+    <!-- /HEADER -->
 
 
 
 
 
 
-
+    <!-- JUMBOTRON -->
     <div id="jumbotron">
       <img class="vignetta" src="img/vignetta.png" alt="">
       <div id="jumbotron_text_wrap">
-
         <h2 id="h2_jumboTitle">Oggi al n 10 in italia</h2>
         <div id="main_overview">
-
           <h2 id="h2_jumboOverview">Arresta i criminali e si fa beffe dell'autorità, ma il nuovo comandante è decisamente un osso duro. Come andrà a finire?</h2>
         </div>
       </div>
-
     </div>
+    <!-- /JUMBOTRON -->
 
 
 
 
-
+    <!-- MAIN CONTENT -->
     <div id="uber_wrap">
-
       <div class="main">
+
+        <!-- slider button -->
         <div class="left_box" @click="slideArrayRight(searchResultsTotal)" v-if="showChevron">
           <i class="fas fa-chevron-left"></i>
         </div>
+        <!-- /slider button -->
 
 
 
 
-        <!-- <transition-group class="main_content" name="slide" tag="ul"> -->
-        <ul class="main_content">
+        <div class="main_content">
 
-          <li class="card" v-for="(result,i) in searchResultsTotal" :style="getBackground(result.poster)" v-bind:key='result.id'>
-            <!-- <transition name="slide" :style="getBackground(result.poster)"> -->
+
+          <!-- CARD -->
+          <div class="card" v-for="(result,i) in searchResultsTotal" :style="getBackground(result.poster)" v-bind:key='result.id'>
+
+            <!-- INFO OVERLAY -->
             <div class="overlay">
 
 
@@ -154,24 +175,23 @@
               </div>
 
             </div>
-            <!-- </transition> -->
-          </li>
+            <!-- INFO OVERLAY -->
+
+
+          </div>
+          <!-- /CARD -->
 
 
 
 
 
           <transition name="fade">
+          <!-- INFO BOX -->
           <div class="info_box" v-if="result.resize" v-for="result in searchResultsTotal">
-
-
-
-
             <div class="main_info" :style="getBackground(result.poster)">
               <div class="overview">
                 <div class="i_button_close" @click="resizeCard(result)">
                   <i class="fas fa-times"></i>
-
                 </div>
                 <span>
                   <strong>Trama:</strong>
@@ -184,31 +204,39 @@
 
             </div>
           </div>
+          <!-- INFO BOX -->
           </transition>
 
-          </ul>
-
-        <!-- </transition-group> -->
+        </div>
 
 
 
+        <!-- slider button -->
         <div class="right_box" @click="slideArrayLeft(searchResultsTotal)" v-if="showChevron">
           <i class="fas fa-chevron-right"></i>
         </div>
+        <!-- slider button -->
+
+
       </div>
     </div>
-  </div>
-
-
-
-
-
-
+    <!-- /MAIN CONTENT -->
 
 
 
 
   </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
