@@ -15,6 +15,11 @@
 
 
   <div id="app">
+
+
+
+
+
     <header>
       <div id="header_wrap">
         <img src="img/logo-header.png" alt="" id="logo_header">
@@ -42,7 +47,30 @@
             <i class="fas fa-caret-down"></i>
           </div>
         </nav>
-        <i class="fas fa-bars" id="hamburger"></i>
+        <i class="fas fa-bars" id="hamburger" @click="hamburgerButton()"></i>
+
+        <div id="menu_mobile" v-if="hamburger">
+          <ul>
+            <li@click="activeall()" :style="sectionActive=='all'?'background_color:red':''">Home</li>
+            <li@click="activetv()">Serie TV</li>
+            <li@click="activemovie()">Film</li>
+            <!-- <li>Nuovi e popolari</li>
+            <li>La mia lista</li> -->
+          </ul>
+
+          <select class="" name="">
+            <option v-for="element in genreMap" value="" @click="activegenre(element.name)">{{element.name}}</option>
+          </select>
+          <div class="wrap">
+            <input type="text" name="" value="" v-model="searchText" v-on:keyup.enter="getSearch(searchText)">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="wrap">
+            <img src="img/user_avatar.png" alt="">
+            <i class="fas fa-caret-down"></i>
+          </div>
+
+        </div>
       </div>
     </header>
 

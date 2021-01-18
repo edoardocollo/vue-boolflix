@@ -14,6 +14,7 @@ let app = new Vue({
     totalSearch: '',
     genreMap:'',
     showChevron: false,
+    hamburger: false,
   },
   methods: {
 
@@ -288,6 +289,9 @@ let app = new Vue({
       this.genreActive = val;
       this.getSearch(this.searchText);
 
+    },
+    hamburgerButton: function(){
+      this.hamburger = !this.hamburger;
     },
 
 

@@ -110,7 +110,32 @@ nav ul > li {
   font-size: 50px;
   display: none;
 }
+#menu_mobile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 300px;
+  padding: 10px;
+  background-color: black;
 
+}
+#menu_mobile ul {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  list-style: none;
+}
+#menu_mobile img{
+  height: 40px;
+  width: 40px;
+}
+#menu_mobile .wrap:last-child {
+  display: flex;
+  align-items: center;
+}
 /* JUMBOTRON */
 #jumbotron {
   color: white;
