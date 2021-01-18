@@ -5,8 +5,15 @@
 }
 
 body {
+  width: 100vw;
   background-color: #141414;
   font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+  z-index: 6000;
+}
+#app {
+  width: 100%;
+  overflow: hidden;
 }
 
 img {
