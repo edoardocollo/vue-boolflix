@@ -483,4 +483,14 @@ nav ul > li {
   #header_wrap {
     justify-content: space-between;
   }
+  .overlay_bottomBox {
+    padding: 5px;
+  }
+  .overlay_bottomBox span {
+    margin: 3px;
+    font-size: 9px;
+  }
+  .overview{
+    font-size: 12px
+  }
 }

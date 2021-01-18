@@ -63,7 +63,7 @@
           </select>
           <div class="wrap">
             <input type="text" name="" value="" v-model="searchText" v-on:keyup.enter="getSearch(searchText)">
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search" @click="getSearch(searchText)"></i>
           </div>
           <div class="wrap">
             <img src="img/user_avatar.png" alt="">
